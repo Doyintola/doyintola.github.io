@@ -1,0 +1,40 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "The Future of Net-Zero Infrastructure",
+      "date": "Coming Soon",
+      "categories": ["Infrastructure", "Sustainability"],
+      "excerpt": "Exploring the challenges and opportunities in transitioning construction to net-zero carbon emissions, with focus on developing economies.",
+      "content": "Full article content will go here. This section can be expanded as needed.",
+      "readTime": "8 min read"
+    },
+    {
+      "id": 2,
+      "title": "Circular Economy in Construction",
+      "date": "Coming Soon",
+      "categories": ["Economics", "Innovation"],
+      "excerpt": "How circular economy principles can revolutionize the construction industry and create sustainable value chains for stakeholders.",
+      "content": "Full article content will go here. This section can be expanded as needed.",
+      "readTime": "6 min read"
+    },
+    {
+      "id": 3,
+      "title": "Decision Intelligence for Infrastructure Planning",
+      "date": "Coming Soon",
+      "categories": ["Analytics", "Planning"],
+      "excerpt": "Using data-driven decision-making to optimize infrastructure projects and improve outcomes in the built environment.",
+      "content": "Full article content will go here. This section can be expanded as needed.",
+      "readTime": "7 min read"
+    },
+    {
+      "id": 4,
+      "title": "Sample: Sustainable Materials in Construction",
+      "date": "2026-05-13",
+      "categories": ["Materials", "Sustainability", "Research"],
+      "excerpt": "An example blog post showing how to add new articles. Simply add a new entry to this JSON file and it will appear on your website automatically!",
+      "content": "This is a sample blog post. You can add more blog posts by adding new objects to the 'blogs' array in blogs.json. Each post will automatically appear on your blog page without requiring any HTML changes.",
+      "readTime": "4 min read"
+    }
+  ]
+}

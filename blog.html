@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Oladoyin Akintola</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo"><i class="fas fa-cube"></i> Oladoyin A. Akintola</h2>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="portfolio.html" class="nav-link">Research</a></li>
+                <li><a href="blog.html" class="nav-link active">Articles</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Articles & Insights</h1>
+            <p class="page-subtitle">Thoughts on Infrastructure & Sustainability</p>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section class="blog-section">
+        <div id="blog-grid" class="blog-grid">
+            <!-- Blogs will be loaded here dynamically from blogs.json -->
+        </div>
+    </section>
+
+    <!-- BLOG INSTRUCTION SECTION -->
+    <section class="blog-instruction" style="background-color: #f8f8f8; padding: 2rem; text-align: center; margin-top: 3rem;">
+        <h3>Want to Add a New Blog Post?</h3>
+        <p>Simply edit the <code>blogs.json</code> file and add a new blog object. The website will automatically display it here!</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/oladoyin-abidemi-akintola-975780237" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.researchgate.net/profile/Oladoyin-Akintola" title="ResearchGate" target="_blank"><i class="fab fa-researchgate"></i></a>
+                    <a href="https://scholar.google.com/citations?user=EJXc004AAAAJ&hl=en" title="Google Scholar" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2026 Oladoyin A. Akintola. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

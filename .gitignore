@@ -1,0 +1,59 @@
+# Dependencies and node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Build and dist files
+dist/
+build/
+out/
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# OS-specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+.Icon
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE
+.vscode
+.idea
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# Bundle analyzer
+.bundle-analyzer
+
+# Optional - if you use any build tools
+.cache/
+.next/
+.nuxt/
+dist/
+
+# Keep the website files
+!.gitkeep

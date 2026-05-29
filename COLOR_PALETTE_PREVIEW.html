@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Preview - Choose Your Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .palettes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .palette-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .palette-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .palette-header {
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .palette-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .palette-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .color-swatches {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .swatch {
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+        }
+
+        .preview-section {
+            padding: 2rem;
+        }
+
+        .preview-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .preview-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .preview-button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .preview-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .preview-card {
+            padding: 1rem;
+            border-radius: 6px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .preview-card:hover {
+            border-color: currentColor;
+        }
+
+        .preview-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .preview-link {
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .preview-link:hover {
+            text-decoration: underline;
+        }
+
+        /* OPTION 1: Modern Tech-Forward (Blue & Teal) */
+        .option1-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        }
+
+        .option1-primary { background-color: #0f172a; }
+        .option1-accent { background-color: #00d4ff; }
+        .option1-gold { background-color: #0ea5e9; }
+        .option1-sage { background-color: #06b6d4; }
+
+        .option1-button {
+            background-color: #00d4ff;
+            color: #0f172a;
+        }
+
+        .option1-button:hover {
+            background-color: #0ea5e9;
+        }
+
+        .option1-card {
+            color: #0f172a;
+            border-color: #00d4ff;
+        }
+
+        .option1-link {
+            color: #00d4ff;
+        }
+
+        /* OPTION 2: Warm & Energetic (Navy & Coral) */
+        .option2-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d3561 100%);
+        }
+
+        .option2-primary { background-color: #1a1a2e; }
+        .option2-accent { background-color: #ff6b6b; }
+        .option2-gold { background-color: #ff8c42; }
+        .option2-sage { background-color: #ff5252; }
+
+        .option2-button {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .option2-button:hover {
+            background-color: #ff8c42;
+        }
+
+        .option2-card {
+            color: #1a1a2e;
+            border-color: #ff6b6b;
+        }
+
+        .option2-link {
+            color: #ff6b6b;
+        }
+
+        /* OPTION 3: Nature-Inspired (Green & Teal) */
+        .option3-header {
+            background: linear-gradient(135deg, #1a3a2e 0%, #2d5a4a 100%);
+        }
+
+        .option3-primary { background-color: #1a3a2e; }
+        .option3-accent { background-color: #00d98e; }
+        .option3-gold { background-color: #00f5a0; }
+        .option3-sage { background-color: #06b6d4; }
+
+        .option3-button {
+            background-color: #00d98e;
+            color: white;
+        }
+
+        .option3-button:hover {
+            background-color: #06b6d4;
+        }
+
+        .option3-card {
+            color: #1a3a2e;
+            border-color: #00d98e;
+        }
+
+        .option3-link {
+            color: #00d98e;
+        }
+
+        /* OPTION 4: Contemporary (Indigo & Gold) */
+        .option4-header {
+            background: linear-gradient(135deg, #2e1a47 0%, #3d2466 100%);
+        }
+
+        .option4-primary { background-color: #2e1a47; }
+        .option4-accent { background-color: #fbbf24; }
+        .option4-gold { background-color: #f59e0b; }
+        .option4-sage { background-color: #a78bfa; }
+
+        .option4-button {
+            background-color: #fbbf24;
+            color: #2e1a47;
+        }
+
+        .option4-button:hover {
+            background-color: #f59e0b;
+        }
+
+        .option4-card {
+            color: #2e1a47;
+            border-color: #fbbf24;
+        }
+
+        .option4-link {
+            color: #fbbf24;
+        }
+
+        .select-button {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            background-color: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .select-button:hover {
+            background-color: #e0e0e0;
+            border-color: #999;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .palettes-container {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Choose Your Color Palette</h1>
+        <p>Click "Select This Style" to apply any palette to your website</p>
+    </div>
+
+    <div class="palettes-container">
+        <!-- OPTION 1: Modern Tech-Forward -->
+        <div class="palette-card">
+            <div class="palette-header option1-header">
+                <div class="palette-name">Modern Tech-Forward</div>
+                <div class="palette-description">Blue & Teal - Trust & Innovation</div>
+            </div>
+
+            <div class="color-swatches">
+                <div class="swatch option1-primary">Dark Navy<br>#0f172a</div>
+                <div class="swatch option1-accent">Vibrant Cyan<br>#00d4ff</div>
+                <div class="swatch option1-gold">Sky Blue<br>#0ea5e9</div>
+                <div class="swatch option1-sage">Teal<br>#06b6d4</div>
+                <div class="swatch" style="background-color: #ffffff; color: #0f172a; border: 1px solid #ddd;">Light BG<br>#ffffff</div>
+                <div class="swatch" style="background-color: #f0f9ff; color: #0f172a; border: 1px solid #ddd;">Light Accent<br>#f0f9ff</div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-title">Preview</div>
+                <div class="preview-content">
+                    <button class="preview-button option1-button">Primary Button</button>
+                    <div class="preview-card option1-card">
+                        <div class="preview-text" style="color: #0f172a;">
+                            <strong style="color: #0f172a;">Research Card Example</strong><br>
+                            Explore your expertise with modern tech aesthetics.
+                        </div>
+                        <a href="#" class="preview-link option1-link">Learn more →</a>
+                    </div>
+                </div>
+                <button class="select-button" onclick="selectPalette('option1')">Select This Style</button>
+            </div>
+        </div>
+
+        <!-- OPTION 2: Warm & Energetic -->
+        <div class="palette-card">
+            <div class="palette-header option2-header">
+                <div class="palette-name">Warm & Energetic</div>
+                <div class="palette-description">Navy & Coral - Dynamic Professional</div>
+            </div>
+
+            <div class="color-swatches">
+                <div class="swatch option2-primary">Deep Navy<br>#1a1a2e</div>
+                <div class="swatch option2-accent">Vibrant Coral<br>#ff6b6b</div>
+                <div class="swatch option2-gold">Warm Orange<br>#ff8c42</div>
+                <div class="swatch option2-sage">Red Accent<br>#ff5252</div>
+                <div class="swatch" style="background-color: #ffffff; color: #1a1a2e; border: 1px solid #ddd;">Light BG<br>#ffffff</div>
+                <div class="swatch" style="background-color: #fff5f5; color: #1a1a2e; border: 1px solid #ddd;">Light Accent<br>#fff5f5</div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-title">Preview</div>
+                <div class="preview-content">
+                    <button class="preview-button option2-button">Primary Button</button>
+                    <div class="preview-card option2-card">
+                        <div class="preview-text" style="color: #1a1a2e;">
+                            <strong style="color: #1a1a2e;">Infrastructure Project</strong><br>
+                            Perfect for construction & energy sectors.
+                        </div>
+                        <a href="#" class="preview-link option2-link">Explore →</a>
+                    </div>
+                </div>
+                <button class="select-button" onclick="selectPalette('option2')">Select This Style</button>
+            </div>
+        </div>
+
+        <!-- OPTION 3: Nature-Inspired -->
+        <div class="palette-card">
+            <div class="palette-header option3-header">
+                <div class="palette-name">Nature-Inspired</div>
+                <div class="palette-description">Green & Teal - Sustainability Focus</div>
+            </div>
+
+            <div class="color-swatches">
+                <div class="swatch option3-primary">Forest Green<br>#1a3a2e</div>
+                <div class="swatch option3-accent">Bright Green<br>#00d98e</div>
+                <div class="swatch option3-gold">Lime Green<br>#00f5a0</div>
+                <div class="swatch option3-sage">Cyan<br>#06b6d4</div>
+                <div class="swatch" style="background-color: #ffffff; color: #1a3a2e; border: 1px solid #ddd;">Light BG<br>#ffffff</div>
+                <div class="swatch" style="background-color: #f0fdf4; color: #1a3a2e; border: 1px solid #ddd;">Light Green<br>#f0fdf4</div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-title">Preview</div>
+                <div class="preview-content">
+                    <button class="preview-button option3-button">Primary Button</button>
+                    <div class="preview-card option3-card">
+                        <div class="preview-text" style="color: #1a3a2e;">
+                            <strong style="color: #1a3a2e;">Sustainable Research</strong><br>
+                            Emphasize your green infrastructure focus.
+                        </div>
+                        <a href="#" class="preview-link option3-link">Discover →</a>
+                    </div>
+                </div>
+                <button class="select-button" onclick="selectPalette('option3')">Select This Style</button>
+            </div>
+        </div>
+
+        <!-- OPTION 4: Contemporary -->
+        <div class="palette-card">
+            <div class="palette-header option4-header">
+                <div class="palette-name">Contemporary</div>
+                <div class="palette-description">Indigo & Gold - Premium Professional</div>
+            </div>
+
+            <div class="color-swatches">
+                <div class="swatch option4-primary">Deep Indigo<br>#2e1a47</div>
+                <div class="swatch option4-accent">Bright Gold<br>#fbbf24</div>
+                <div class="swatch option4-gold">Amber<br>#f59e0b</div>
+                <div class="swatch option4-sage">Purple<br>#a78bfa</div>
+                <div class="swatch" style="background-color: #ffffff; color: #2e1a47; border: 1px solid #ddd;">Light BG<br>#ffffff</div>
+                <div class="swatch" style="background-color: #fef3c7; color: #2e1a47; border: 1px solid #ddd;">Light Gold<br>#fef3c7</div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-title">Preview</div>
+                <div class="preview-content">
+                    <button class="preview-button option4-button">Primary Button</button>
+                    <div class="preview-card option4-card">
+                        <div class="preview-text" style="color: #2e1a47;">
+                            <strong style="color: #2e1a47;">Premium Expertise</strong><br>
+                            Stand out with luxury & sophistication.
+                        </div>
+                        <a href="#" class="preview-link option4-link">Explore →</a>
+                    </div>
+                </div>
+                <button class="select-button" onclick="selectPalette('option4')">Select This Style</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>💡 Tip: You can test each style before committing. Just tell me which one you like!</p>
+    </div>
+
+    <script>
+        function selectPalette(option) {
+            const paletteName = {
+                'option1': 'Modern Tech-Forward (Blue & Teal)',
+                'option2': 'Warm & Energetic (Navy & Coral)',
+                'option3': 'Nature-Inspired (Green & Teal)',
+                'option4': 'Contemporary (Indigo & Gold)'
+            };
+
+            alert(`You selected: ${paletteName[option]}\n\nThis will now be applied to your entire website!\n\nYour website will be updated with these beautiful new colors. 🎨`);
+            
+            console.log(`Selected palette: ${option}`);
+        }
+    </script>
+</body>
+</html>
