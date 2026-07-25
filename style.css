@@ -5,13 +5,13 @@
     /* Color Palette - Modern Tech-Forward */
     --dark: #0f172a;             /* Deep Navy */
     --slate: #1e3a5f;            /* Navy Slate */
-    --gray-light: #7ba3d4;       /* Light Blue-Gray */
+    --gray-light: #1A43BF;       /* Blue */
     --border: #e0f1ff;           /* Light Blue Border */
     --bg-light: #f0f9ff;         /* Very Light Blue Background */
-    --bg: #ffffff;               /* White */
+    --bg: #d8f9ff;               /* White */
     
     /* Accent Colors - Blue & Teal Vibrant */
-    --accent: #00d4ff;           /* Vibrant Cyan - PRIMARY */
+    --accent: #00072d;           /* Vibrant Cyan - PRIMARY */
     --accent-gold: #0ea5e9;      /* Sky Blue - SECONDARY */
     --accent-sage: #06b6d4;      /* Teal - TERTIARY */
     
