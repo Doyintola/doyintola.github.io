@@ -3,17 +3,17 @@
 /* COLOR PALETTE: Modern Tech-Forward (Blue & Teal) */
 :root {
     /* Color Palette - Modern Tech-Forward */
-    --dark: #0f172a;             /* Deep Navy */
-    --slate: #1e3a5f;            /* Navy Slate */
-    --gray-light: #1A43BF;       /* Blue */
-    --border: #e0f1ff;           /* Light Blue Border */
-    --bg-light: #f0f9ff;         /* Very Light Blue Background */
-    --bg: #d8f9ff;               /* White */
+    --dark: #0f172a;             
+    --slate: #1e3a5f;            
+    --gray-light: #1A43BF; 
+    --border: #3e9ae6;           
+    --bg-light: #f0f9ff;         
+    --bg: #d8f9ff;
     
     /* Accent Colors - Blue & Teal Vibrant */
-    --accent: #00072d;           /* Vibrant Cyan - PRIMARY */
-    --accent-gold: #0ea5e9;      /* Sky Blue - SECONDARY */
-    --accent-sage: #06b6d4;      /* Teal - TERTIARY */
+    --accent: #00072d;           
+    --accent-gold: #0ea5e9;
+    --accent-sage: #56abf0;      /* Teal - TERTIARY */
     
     /* Typography */
     --font-serif: 'Playfair Display', Georgia, serif;
