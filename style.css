@@ -515,6 +515,153 @@ section {
     margin-bottom: 0;
 }
 
+/* =====================================
+   PORTFOLIO SECTION
+===================================== */
+
+.portfolio-section {
+    padding: 55px 6% 70px;
+}
+
+.portfolio-content {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.portfolio-intro {
+    max-width: 760px;
+    margin-bottom: 32px;
+}
+
+.portfolio-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.portfolio-intro p {
+    line-height: 1.8;
+    color: #626b7a;
+}
+
+
+/* Portfolio cards */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.portfolio-card {
+    display: grid;
+    grid-template-columns: 145px minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid #e6e9ef;
+    border-radius: 10px;
+    transition: box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Image area */
+
+.portfolio-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #edf0f5;
+}
+
+.portfolio-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Card text */
+
+.portfolio-card-content {
+    min-width: 0;
+}
+
+.portfolio-card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin: 0 0 9px;
+}
+
+.portfolio-card-content > p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #626b7a;
+    margin: 0 0 12px;
+}
+
+.portfolio-meta {
+    padding-top: 10px;
+    border-top: 1px solid #edf0f5;
+}
+
+.portfolio-meta p {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: #626b7a;
+    margin: 0 0 6px;
+}
+
+.portfolio-meta strong {
+    color: #30394c;
+}
+
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-card {
+        grid-template-columns: 160px minmax(0, 1fr);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 520px) {
+    .portfolio-section {
+        padding: 40px 5% 50px;
+    }
+
+    .portfolio-intro h2 {
+        font-size: 1.65rem;
+    }
+
+    .portfolio-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 15px;
+    }
+
+    .portfolio-image {
+        aspect-ratio: 16 / 9;
+    }
+}
+
 /* ========== BLOG ========== */
 .blog-section {
     background-color: var(--bg);
