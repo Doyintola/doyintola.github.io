@@ -515,50 +515,51 @@ section {
     margin-bottom: 0;
 }
 
+
 /* =====================================
    PORTFOLIO SECTION
 ===================================== */
 
 .portfolio-section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
     padding: 55px 6% 70px;
+    background-color: var(--bg);
 }
 
 .portfolio-content {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .portfolio-intro {
     max-width: 760px;
-    margin-bottom: 32px;
+    margin-bottom: 35px;
 }
 
 .portfolio-intro h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-serif);
     font-size: 2rem;
     margin-bottom: 12px;
 }
 
-.portfolio-intro p {
-    line-height: 1.8;
-    color: #626b7a;
-}
-
-
-/* Portfolio cards */
+/* PROJECT GRID */
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
+    align-items: stretch;
 }
 
+/* PROJECT CARD */
+
 .portfolio-card {
-    display: grid;
-    grid-template-columns: 145px minmax(0, 1fr);
-    align-items: start;
-    gap: 18px;
-    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 16px;
     background: #fff;
     border: 1px solid #e6e9ef;
     border-radius: 10px;
@@ -571,15 +572,15 @@ section {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-
-/* Image area */
+/* IMAGE */
 
 .portfolio-image {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-radius: 6px;
     background: #edf0f5;
+    margin-bottom: 15px;
 }
 
 .portfolio-image img {
@@ -589,76 +590,68 @@ section {
     object-fit: cover;
 }
 
-
-/* Card text */
+/* CARD CONTENT */
 
 .portfolio-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     min-width: 0;
 }
 
 .portfolio-card-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
     line-height: 1.4;
-    margin: 0 0 9px;
+    margin-bottom: 8px;
 }
 
 .portfolio-card-content > p {
-    font-size: 0.88rem;
-    line-height: 1.7;
+    font-size: 0.85rem;
+    line-height: 1.65;
     color: #626b7a;
-    margin: 0 0 12px;
+    margin-bottom: 12px;
 }
 
 .portfolio-meta {
     padding-top: 10px;
     border-top: 1px solid #edf0f5;
+    margin-top: auto;
 }
 
 .portfolio-meta p {
-    font-size: 0.82rem;
-    line-height: 1.65;
+    font-size: 0.8rem;
+    line-height: 1.6;
     color: #626b7a;
-    margin: 0 0 6px;
+    margin-bottom: 6px;
 }
 
 .portfolio-meta strong {
     color: #30394c;
 }
 
-
-/* Tablet */
+/* TABLET */
 
 @media (max-width: 1000px) {
     .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-card {
-        grid-template-columns: 160px minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* MOBILE */
 
-/* Mobile */
-
-@media (max-width: 520px) {
+@media (max-width: 600px) {
     .portfolio-section {
         padding: 40px 5% 50px;
     }
 
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     .portfolio-intro h2 {
         font-size: 1.65rem;
-    }
-
-    .portfolio-card {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 15px;
-    }
-
-    .portfolio-image {
-        aspect-ratio: 16 / 9;
     }
 }
 
@@ -742,71 +735,6 @@ section {
     border-radius: 3px;
     font-family: 'Courier New', monospace;
     color: var(--accent);
-}
-
-/* ========== PORTFOLIO ========== */
-.portfolio-section {
-    background-color: var(--bg);
-}
-
-.portfolio-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.project-card {
-    background-color: var(--bg-light);
-    padding: 2rem;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    margin-bottom: 2rem;
-    transition: var(--transition);
-}
-
-.project-card:hover {
-    border-color: var(--accent);
-    box-shadow: var(--shadow-md);
-}
-
-.project-year {
-    display: inline-block;
-    background-color: var(--accent);
-    color: white;
-    padding: 0.35rem 0.75rem;
-    border-radius: 3px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.project-card h2 {
-    font-size: 1.35rem;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-}
-
-.project-description {
-    color: var(--slate);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-}
-
-.project-meta {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-}
-
-.project-tag {
-    display: inline-block;
-    background-color: var(--bg);
-    color: var(--accent);
-    padding: 0.35rem 0.7rem;
-    border-radius: 3px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    border: 1px solid var(--border);
 }
 
 /* ========== CONTACT ========== */
